@@ -11,7 +11,7 @@ run_segment() {
     elif [ $cpu_temp -gt 40 ]; then
       widget="#[fg=colour233,bg=colour2,bold] $cpu_temp°C";
     elif [ $cpu_temp -gt 30 ]; then
-      widget="#[fg=colour233,bg=colour12,bold] $cpu_temp°C";
+      widget="#[fg=colour255,bg=colour12,bold] $cpu_temp°C";
     fi
   elif shell_is_osx; then 
     echo "Not configured for OSX"
