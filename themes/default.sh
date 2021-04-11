@@ -1,10 +1,10 @@
 # Default Theme
 
 if patched_font_in_use; then
-	TMUX_POWERLINE_SEPARATOR_LEFT_BOLD=""
-	TMUX_POWERLINE_SEPARATOR_LEFT_THIN=""
-	TMUX_POWERLINE_SEPARATOR_RIGHT_BOLD=""
-	TMUX_POWERLINE_SEPARATOR_RIGHT_THIN=""
+	TMUX_POWERLINE_SEPARATOR_LEFT_BOLD=""
+	TMUX_POWERLINE_SEPARATOR_LEFT_THIN=""
+	TMUX_POWERLINE_SEPARATOR_RIGHT_BOLD=""
+	TMUX_POWERLINE_SEPARATOR_RIGHT_THIN=""
 else
 	TMUX_POWERLINE_SEPARATOR_LEFT_BOLD="◀"
 	TMUX_POWERLINE_SEPARATOR_LEFT_THIN="❮"
@@ -28,7 +28,8 @@ if [ -z $TMUX_POWERLINE_LEFT_STATUS_SEGMENTS ]; then
 		# "ifstat 30 255" \
 		#"ifstat_sys 30 255" \
 		# "lan_ip 24 255 ${TMUX_POWERLINE_SEPARATOR_RIGHT_THIN}" \
-		"lan_ip 24 255" \
+		"lan_ip 24 255 " \
+		"blank_space" \
 		# "wan_ip 24 255" \
 		# "vcs_branch 29 88" \
 		# "vcs_compare 60 255" \
@@ -43,8 +44,8 @@ if [ -z $TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS ]; then
 		#"earthquake 3 0" \
 		"pwd 179 0" \
 		#"macos_notification_count 29 255" \
-		"mailcount 9 255" \
-		"now_playing 234 37" \
+		# "mailcount 9 255" \
+		# "now_playing 234 37" \
 		#"cpu 240 136" \
 		"load 237 167" \
 		#"tmux_mem_cpu_load 234 136" \
