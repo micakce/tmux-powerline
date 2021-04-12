@@ -5,13 +5,13 @@ run_segment() {
     cpu_temp=$(sensors | grep -oP 'Package.*?\+\K[0-9]+')
 
     if [ $cpu_temp -gt 80 ]; then
-      widget="#[fg=colour233,bg=colour9,bold] $cpu_temp°C";
+      widget="#[fg=colour233,bg=colour9] $cpu_temp°C";
     elif [ $cpu_temp -gt 65 ]; then
-      widget="#[fg=colour233,bg=colour3,bold] $cpu_temp°C";
+      widget="#[fg=colour233,bg=colour3] $cpu_temp°C";
     elif [ $cpu_temp -gt 40 ]; then
-      widget="#[fg=colour233,bg=colour2,bold] $cpu_temp°C";
+      widget="#[fg=colour233,bg=colour2] $cpu_temp°C";
     elif [ $cpu_temp -gt 30 ]; then
-      widget="#[fg=colour255,bg=colour12,bold] $cpu_temp°C";
+      widget="#[fg=colour233,bg=colour12] $cpu_temp°C";
     fi
   elif shell_is_osx; then 
     echo "Not configured for OSX"

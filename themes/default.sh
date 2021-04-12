@@ -18,23 +18,20 @@ TMUX_POWERLINE_DEFAULT_FOREGROUND_COLOR=${TMUX_POWERLINE_DEFAULT_FOREGROUND_COLO
 TMUX_POWERLINE_DEFAULT_LEFTSIDE_SEPARATOR=${TMUX_POWERLINE_DEFAULT_LEFTSIDE_SEPARATOR:-$TMUX_POWERLINE_SEPARATOR_RIGHT_BOLD}
 TMUX_POWERLINE_DEFAULT_RIGHTSIDE_SEPARATOR=${TMUX_POWERLINE_DEFAULT_RIGHTSIDE_SEPARATOR:-$TMUX_POWERLINE_SEPARATOR_LEFT_BOLD}
 
-cpu_temperature() {
+__cpu_temp_color() {
   if shell_is_linux; then
     local cpu_temp=$(sensors | grep -oP 'Package.*?\+\K[0-9]+')
 
     if [ $cpu_temp -gt 80 ]; then
       echo 9
-      exit 0
     elif [ $cpu_temp -gt 65 ]; then
       echo 3
-      exit 0
     elif [ $cpu_temp -gt 40 ]; then
       echo 2
-      exit 0
     elif [ $cpu_temp -gt 30 ]; then
       echo 12
-      exit 0
     fi
+    exit 0
   else
     exit 1
   fi
@@ -64,16 +61,16 @@ fi
 if [ -z $TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS ]; then
 	TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS=(
 		#"earthquake 3 0" \
-		"pwd 179 0" \
+		"pwd 179 0 " \
 		#"macos_notification_count 29 255" \
 		# "mailcount 9 255" \
 		# "now_playing 234 37" \
 		#"cpu 240 136" \
 		"load 237 167" \
-      "cpu_temp $(cpu_temperature)" \
+      "cpu_temp $(__cpu_temp_color)" \
     # "cpu_temp 1" \
 		#"tmux_mem_cpu_load 234 136" \
-		"battery 137 127" \
+		"battery 137 127 " \
 		# "weather 37 255" \
 		#"rainbarf 0 ${TMUX_POWERLINE_DEFAULT_FOREGROUND_COLOR}" \
 		#"xkb_layout 125 117" \
