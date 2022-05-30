@@ -2,6 +2,6 @@
 # Assuems that [ -n "$TMUX"].
 
 run_segment() {
-	tmux display-message -p '#S:#I.#P'
+  echo "#{?client_prefix,#[fg=#df0000],#[fg=$1]} $(tmux display-message -p '#S:#I.#P')"
 	return 0
 }
