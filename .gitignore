@@ -4,3 +4,4 @@ segments/xkb_layout
 
 # ignore all themes, only default.sh
 themes/default.sh
+themes/default.sh
