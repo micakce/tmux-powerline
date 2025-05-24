@@ -31,6 +31,7 @@ if [ -z $TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS ]; then
   TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS=(
     "pwd 141 232 "
     "load 55 255"
+    "ping_latency 28 0 \"\""
     "battery 234 148"
   )
 fi

@@ -99,14 +99,14 @@ __battery_linux() {
       BAT_NOW=$BATPATH/energy_now
     fi
 
-    if [ "$1" = $(cat $STATUS) -o "$1" = "" ]; then
-      __linux_get_bat
-    fi
+    # if [ "$1" = $(cat $STATUS) -o "$1" = "" ]; then
+    __linux_get_bat
+    # fi
     ;;
   "bsd")
     STATUS=$(sysctl -n hw.acpi.battery.state)
     case $1 in
-    "Discharging")
+    "Discharging","Not charging")
       if [ $STATUS -eq 1 ]; then
         __freebsd_get_bat
       fi
@@ -157,7 +157,7 @@ __linux_get_bat() {
   "Charging")
     ICON="$battery_icon "
     ;;
-  "Full")
+  "Full" | "Not charging")
     ICON=$battery_icon
     ;;
   *)
